@@ -1,0 +1,138 @@
+#ifndef avr_isr_h
+#define avr_isr_h
+#include <Arduino.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>  //割り込みを使用するため
+
+#define SW_INT_PCICR ((1<<PCIE0)|(1<<PCIE1))
+#define SW_INT_PCMSK0 ((1<<PCINT3)|(1<<PCINT2)|(1<<PCINT1)|(1<<PCINT0)) //ロータリーエンコーダ
+#define SW_INT_PCMSK1 ((1<<PCINT10)|(1<<PCINT9)) //ロータリーエンコーダ
+
+static int Rpms[10] = {};
+static int Rpms_save[10] = {};
+static int Rotation[10] = {};
+static int Rps[10] = {};
+static int new_v[10] = {};
+static int old_v[10] = {};
+
+int pin = 13;
+volatile int state = LOW;
+
+measurement(int a, int b){
+  for(int i = a; i <= b; i++){
+    if(old_v[i] != new_v[i]){
+      old_v[i] = new_v[i];
+      Rotation[i]++;
+      Rpms[i]++;
+      if(Rotation[i] == 20){
+        Rps[i]++;
+        //Serial.println(Rps[i]);
+      }else if(Rotation[i] == 41){
+        Rps[i]++;
+        //Serial.println(Rps[i]);
+      }else if(Rotation[i] == 62){
+        Rps[i]++;
+        //Serial.println(Rps[i]);
+        Rotation[i] = 0;
+      }
+    }
+  }
+}
+
+/*
+measurement(int a, int b){
+  for(int i = a; i <= b; i++){
+    if(old_v[i] != new_v[i]){
+      old_v[i] = new_v[i];
+      Rotation[i]++;
+      
+      if(Rotation[i] == 10){
+        Rps[i]++;
+        Rotation[i] = 0;
+        //Serial.println(Rps[i]);
+      }
+    }
+  }
+}
+*/
+
+zero_set(){
+  for(int i = 0;i <= 9;i++){
+	Rps[i] = 0;
+	Rotation[i] = 0;
+  }
+}
+
+//ロータリーエンコーダはAVR式割込み
+//PCINT0~PCINT3 ロータリーエンコーダー
+ISR(PCINT0_vect){
+  new_v[0] = PINB & _BV(PB0);
+  new_v[1] = PINB & _BV(PB1);
+  new_v[2] = PINB & _BV(PB2);
+  new_v[3] = PINB & _BV(PB3);
+  measurement(0,3);
+}
+
+//PCINT9~PCINT10 ロータリーエンコーダー
+ISR(PCINT1_vect){
+  new_v[4] = PINJ & _BV(PJ0); //PCINT9
+  new_v[5] = PINJ & _BV(PJ1); //PCINT10
+  measurement(4,5);
+}
+
+//流速計はArduino式割込み
+int0(){
+  state = !state;
+  Rotation[7]++;
+  if(Rotation[7] == 2){
+	Rps[7]++;
+	Rotation[7] = 0;
+  }
+}
+
+int1(){
+  state = !state;
+  Rotation[6]++;
+  if(Rotation[6] == 2){
+	Rps[6]++;
+	Rotation[6] = 0;
+  }
+}
+
+int4(){
+  state = !state;
+  Rotation[9]++;
+  if(Rotation[9] == 2){
+	Rps[9]++;
+	Rotation[9] = 0;
+  }
+}
+
+int5(){
+  state = !state;
+  Rotation[8]++;
+  if(Rotation[8] == 2){
+	Rps[8]++;
+	Rotation[8] = 0;
+  }
+}
+
+isr_setup(){
+  //PCINT
+  DDRB = B11110000;
+  DDRJ = B11111100;
+  
+  PCICR  |= SW_INT_PCICR;
+  PCMSK0 |= SW_INT_PCMSK0;
+  PCMSK1 |= SW_INT_PCMSK1;
+  sei();
+  
+  //INT
+  attachInterrupt(0, int0, CHANGE); //pin2
+  attachInterrupt(1, int1, CHANGE); //pin3
+  attachInterrupt(4, int4, CHANGE); //pin19
+  attachInterrupt(5, int5, CHANGE); //pin18
+  
+  pinMode(pin, OUTPUT);
+}
+#endif

@@ -1,0 +1,14 @@
+・ライブラリ
+Adafruit_BNO055-master
+Adafruit_Sensor-master
+
+・dsr1603
+９軸センサのXYZの値を見るだけのプログラム
+https://learn.adafruit.com/adafruit-bno055-absolute-orientation-sensor/arduino-code
+
+・dsr_moter
+９軸センサの値からモータを制御するプログラム
+
+・moter
+モータを動かすだけのプログラム
+
