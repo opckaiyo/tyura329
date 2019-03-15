@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+<link href="./css/style.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" >
+    var menu_1={}
+    var flg_1=0;
+    var myLineChart;
+    var myLineChart2;
+    var myLineChart3;
+    var cnt_2=0;
+  </script>
+  <script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="./js/set_Graph2D_txt.js"></script>
+    <script type="text/javascript" src="./js/set_Graph2D_txt_2.js"></script>
+    <script type="text/javascript" src="./js/set_Graph2D_txt_3.js"></script>
+    <script type="text/javascript" src="./js/set_Graph3D_txt.js"></script>
+    <script src="./js/Chart.bundle.js"></script>
+    <script src="./js/canvas3DGraph.js"></script>
+    <script src="./js/graph_3D.js"></script>
+    <script src="./js/set_val.js"></script>
+    <script src="./js/spn.js"></script>
+      <link href="./css2/index.css" rel="stylesheet" type="text/css" /> 
+
+  </head>
+
+<body>
+    <!--
+<p>Hello World:D</p>
+    <h1>ちゅら329</h1>-->
+ <!--<div id="click">
+<div id="btn_center"><input type="button" id="hyouji" value="表示ON" style="font-size: 1.2em;color: #028760;position: center;"></div>
+<p>上のボタンが「表示ON」の時に押すと、この下の中央に文字が出て、「表示OFF」の時に押すと、文字が消える。ついでにボタンの文字の色も変わる。</p>
+<div id="target"></div>
+</div> -->
+   
+    
+
+
+
+
+
+
+
+<script type="text/javascript">
+set_val();
+jQuery('#click').on('click', "#hyouji", function() {
+    if (this.value === "表示ON") {
+        jQuery('input').addClass("clicked");
+        jQuery('#hyouji').replaceWith('<input type="button" id="hyouji" value="表示OFF" style="font-size: 1.2em;color: #D30E1B;">');
+        jQuery('#target').replaceWith('<div id="target">表示ON</div>');
+    } else {
+        jQuery('input').removeClass('clicked');
+        jQuery('#hyouji').replaceWith('<input type="button" id="hyouji" value="表示ON" style="font-size: 1.2em;color: #028760;">');
+        jQuery('#target').replaceWith('<div id="target"></div>');
+    }
+});
+</script>
+    
+<script type="text/javascript">
+   
+</script>
+
+
+
+<form name="test">
+<input type="file" id="selfile">
+   
+    <font color="black">ファイル参照場所：</font>
+    <font color="red">\\file\応用課程\応用課程共用\応用課程学生\2018年度\03_各グループ作業用\海洋ロボット\データ化\データ化html\データテキスト</font><br>
+
+<textarea name="txt" rows="10" cols="50" readonly></textarea>
+        <font color="black">←選択したテキストファイルの中身</font>
+</form>
+
+
+ <hr color="#000000" width="100%" size="9">
+    <!--<hr color="#000000" width="100%" size="9"> -->
+<script>
+
+</script>
+        
+<script type="text/javascript" src="./js/select_txt.js"></script>
+    <p></p>
+    <canvas id="myLineChart"></canvas><br>
+     <hr color="#000000" width="100%" size="9">
+<!--<input type="button" value="simulation_3D" onclick="set_Graph3D_txt()"/>-->
+  
+
+   
+<div id="g-holder">  
+    
+    <div id="canvasDiv"> 
+      <a class="cp_btn" onclick="set_Graph3D_txt()">simulation_3D</a>
+           
+        <canvas id="graph" width="1500" height="1500" ></canvas>  
+        <div id="gInfo"></div>
+    </div>
+    
+    <p id="demo"></p>
+    <p id="demo_x"></p>
+    <p id="demo_z"></p>
+    <p id="demo_kyori"></p>
+    <p id="demo_PWM1"></p>
+    <p id="demo_F1"></p>
+    <p id="demo_F2"></p>
+    <p id="demo_F3"></p>
+    <p id="demo_F4"></p>
+    <p id="demo_M1"></p>
+    <p id="demo_M2"></p>
+    <p id="demo_T1"></p>
+    <p id="demo_T2"></p>
+    <p id="demo_T3"></p>
+    <p id="demo_T4"></p>
+    <p id="demo_T5"></p>
+    <p id="demo_T6"></p>
+    <p id="demo_T7"></p>
+    <p id="demo_C1"></p>
+    <p id="demo_C2"></p>
+    <p id="demo_C3"></p>
+    <p id="demo_C4"></p>
+    <p id="demo_PWM2"></p>
+    <p id="demo_PWM3"></p>
+    <p id="demo_PS1"></p>
+    <p id="demo_V1"></p>
+    <p id="demo_MEMO1"></p>
+        
+    <div class="section" id="s01">
+        <img src="./img2/test4.jpg" width="262" height="301" title="reia">
+        <div id="controls">  
+            <!-- (put your controls here, if you need any) -->  
+        </div>  
+    
+    </div>
+    
+    <div id="g-holder2">  
+        <canvas id="myLineChart2"></canvas>
+        <canvas id="myLineChart3"></canvas>
+        <font color="blue" id="text_memo">対応ブラウザGoogle Chrome</font><br>
+    </div> 
+
+     
+
+
+    <div id="footer">
+    <a href="./M2-1_BodyData.html" class="cp_btn">データ詳細</a> 
+     
+    </div>
+    </div>
+    
+<!--<a href="./M1-1_Home_screen.html">ホーム画面</a>  <!-- 一つ前に戻る　-->   
+
+    
+<script src="./js/jQueryRotate.js" type="text/javascript"></script>
+<script src="./js/jcustom.js" type="text/javascript"></script>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+
+  </body>
+</html>

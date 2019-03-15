@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+      <meta name="viewport" content="width=device-width">
+<meta name="keywords" content="">
+<meta name="description" content="">
+      <meta charset="UTF-8">
+      <link href="./css/style.css" rel="stylesheet" type="text/css">
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.scrollshow.js"></script>
+    <script type="text/javascript" src="js/jquery.slideshow.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+      <script>
+$(function($){
+	$('html').smoothscroll({easing : 'swing', speed : 1000, margintop : 30, headerfix : $('nav')});
+	$('.totop').scrollshow({position : 500});
+	$('.slide').slideshow({
+		touch        : false,
+		bgImage      : true,
+		autoSlide    : true,
+		effect       : 'fade',
+		repeat       : true,
+		easing       : 'swing',
+		interval     : 5000,
+		duration     : 1000,
+		imgHoverStop : false,
+		navHoverStop : false,
+		navImg       : false,
+		navImgCustom : false,
+		navImgSuffix : ''
+	});
+});
+</script>
+    <title>home</title>
+  </head>
+<header>
+	<div class="slide">
+        <h1><img src="./img/taitoru3.png" alt=""></h1>
+		<ul class="slideInner">
+			<li><img src="./img/図1.jpg" alt=""></li>
+            <li><img src="./img/図2.jpg" alt=""></li>
+            <li><img src="./img/図3.jpg" alt=""></li>
+		</ul>
+    </div>
+</header>
+  <nav>
+      <ul >
+		<li><a href="">ログイン</a></li>
+		<li><a href="">新規登録</a></li>
+	</ul>
+  </nav>
+
+  <body>
+        
+      <div id="box_home">
+          <p class="btn02"><a href="M1-2_select.html">コース選択</a></p>
+          <p class="btn02"><a href="txt_2D3Dgraph.html">記録確認</a></p>
+          <p class="btn02"><a href="M2-2_sukejyu-ru.html">スケジュール確認</a></p>
+      </div>
+  </body>
+    <footer>
+	<div><small>Copyright &#169; 2018 Ocean Robot Development Team All Rights Reserved.</small></div><!-- /.copyright -->
+</footer>
+</html>

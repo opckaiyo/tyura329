@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="./css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" >
+var menu_1={}
+var flg_1=0;
+var myLineChart;
+var cnt_2=0;
+</script>
+<script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
+<script src="./js/canvas3DGraph.js"></script>
+<script src="./js/Chart.bundle.js"></script>
+<script src="./js/graph_3D.js"></script>
+<title>Test</title>
+
+<script type="text/javascript" src="./js/select_menu.js"></script>
+<script type="text/javascript" src="./js/set_up.js"></script>
+
+<link href="./css2/index.css" rel="stylesheet" type="text/css" /> 
+<style type="text/css">
+
+</style>
+<script src="./js/my_textbox.js"></script>
+</head>
+  
+<body onload="init(),set_up();">
+<script type="text/javascript">
+
+</script>
+    
+     <hr color="#000000" width="100%" size="9">
+<font size="5" color="#fA0000"></font>
+<form name="formName">
+<font size="15" color="#0000FF">データベースID</font>　
+<select id="select" name="selectName" onchange="t_alert();">
+    <option value="sample" >↓選択して下さい。↓</option>
+</select>
+<input type="button" value="詳細" onclick="t_alert2();"/>
+<input type="button" value="text作成" onclick="txt_make();"/>
+        <div id="contents_sample_wrap">
+            <input type="button" value="txt作成！" id="export" />
+            <a id="download" target="_blank">ダウンロード（IEでは、右クリック＞対象をファイルに保存）</a>
+        </div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+  <input type="text" id="txt1"  value="">
+  <input type="button" value="メモ書き込み" onclick="getValue('txt1');">
+    
+<p id="datatime_1"></p>
+
+     <hr color="#000000" width="100%" size="9">
+<input type="button" value="simulation_2D" onclick="set_up2();"/>
+
+</form>
+
+<canvas id="myLineChart"></canvas>
+    <hr color="#000000" width="100%" size="9">
+<input type="button" value="simulation_3D" onclick="simulation3_3D()"/>
+<input type="button" value="btn" onclick="spn();"/>
+
+
+<div id="g-holder">  
+    <div id="canvasDiv">  
+        <canvas id="graph" width="500" height="500" ></canvas>  
+        <div id="gInfo"></div>   
+    </div>
+    <p id="demo"></p>
+    <p id="demo_x"></p>
+    <p id="demo_z"></p>
+    <p id="demo_PWM1"></p>
+    <p id="demo_F1"></p>
+        <div class="section" id="s01">
+      <img src="./img2/test4.jpg" title="reia">
+    <div id="controls">  
+    <!-- (put your controls here, if you need any) -->  
+    </div>  
+</div>
+	
+<script>
+  //setTimeout(function() { simulation3_3D(); }, 10);
+   
+    
+</script>
+<div id="wrap">
+
+
+    </div>
+</div>
+<script src="./js/jQueryRotate.js" type="text/javascript"></script>
+<script src="./js/jcustom.js" type="text/javascript"></script>
+<a href="./M1-1_Home_screen.html">ホーム画面</a>  <!-- 一つ前に戻る　-->
+</body>
+</html>
+

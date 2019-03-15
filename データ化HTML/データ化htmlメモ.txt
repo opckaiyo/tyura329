@@ -1,0 +1,58 @@
+//---------------------------------------------------------------------------------------------------------------//
+データ化HTML	
+ソース				:説明
+css				:css htmlファイルのスタイル設定
+css2				:css html文字表示_スタイル設定
+img				:メニュー写真・画像
+img2				:写真・画像
+データテキスト			:航行データ記録
+	
+js	JavaScriptファイル
+canvas3DGraph.js		:3Dグラフ設定
+Chart.bundle.js			:2Dグラフ作成ソース
+Chart.bundle.min.js		:2Dグラフ作成設定
+css3-mediaqueries.js		:cssスタイル設定
+graph_3D.js			:simulation3_3D()：3Dグラフ表示
+html5shiv.js			:html文字表示設定
+jcustom.js			:spn()　画像表示
+jquery.main.js			:非同期通信 jquery
+jquery.scrollshow.js		:非同期通信 jquery
+jquery.slideshow.js		:jquery
+jquery.smoothscroll.js		:jquery
+jquery-1.10.1.min.js		:jquery-1.10.1
+jQueryRotate.js			:画像回転
+my_textbox.js			:テキストボックス
+script.js			:ヘッダの余白設定
+select_menu.js	setSelect() 	: セレクトボックス値
+	label_data_ajax() 	: データベースセレクトID
+	datatime_label() 	; 詳細取得
+	init()			:セレクトボックス 選択項目
+	set_up2() 		: 2dグラフ設定
+select_txt.js			:テキストファイル読み込み、表示
+set_Graph2D_txt.js		:2Dグラフ 表示(全データ)
+set_Graph2D_ｍtxt.js		:2Dグラフ 表示(流量計のみ)
+set_Graph2D_txt.js		:2Dグラフ 表示(推進ロータリー)
+set_up.js			:変数宣言・初期化
+set_val.js			:変数宣言・初期化
+spn.js				:画像回転
+	
+db_update.php			:データベースアクセス メモ更新
+myphpread_data_and_time.php	:data_and_time_id取得
+myphpread_datatime.php		:日時とメモ取得
+myphpread_id.php		:date_and_time_id取得
+myphpread_select.php		:date_and_time_id取得
+	
+M1-1_Home_screen.html		:ホーム画面
+M1-2_select.html		:テストページ
+M2-1_BodyData.html		:機体仕様ページ
+M2-2_sukejyu-ru.html		:スケジュール2018
+txt_2D3Dgraph.html		:2D_3Dグラフ画面(テキストファイル選択)
+test_3dgraph7.html		:2D_3Dグラフ画面(データ選択べース)
+
+//---------------------------------------------------------------------------------------------------------------//
+3Dグラフの速さ変更は、
+js/set_Graph3D_txt.js　の72行目　後ろ部分変更
+setTimeout(function() { set_Graph3D_txt(),spn2(),set_Graph2D_txt_2(),set_Graph2D_txt_3(); }, 10);
+
+100　←リアルタイム
+10  (2Dグラフで重くなり、不安定な更新速度になる) ,set_Graph2D_txt_2(),set_Graph2D_txt_3()部分を消して２Dグラフ表示なし推奨

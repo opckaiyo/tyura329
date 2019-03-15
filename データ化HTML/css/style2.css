@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+body {
+    height: 100%;
+     width: auto;
+    
+    margin: 0;
+    padding: 0;
+    
+    background-image: url('./photo0000-1996.jpg');
+    background-position:center;
+    background-size: cover;
+}
+#box_home{   /* コース選択*/
+    padding : 0px ; 
+    margin : 0px ;
+    position: relative;
+    width: auto; 
+    height: auto;
+    text-align : center;
+    line-height:initial;
+}
+
+
+/* ボタンのスタイル */
+.button {
+    
+    padding: 10px 10px; /*周りの空白 */
+    font-size: 2em;     /*文字の大きさ*/
+    margin: 10px auto;  /*空白縦横*/
+    width:50%;          /*margin表示領域*/
+    background: orange;
+    text-align: center;
+    
+}
+/* マウスオーバー時のカラー */
+.button:hover {
+border:  solid #19DC12;
+background-color: #049BF3;
+} 
+
+.button_wrapper{
+   text-align:center;
+     margin: 5px auto;
+  width:50%;
+  background: #049BF3 ;
+}
+
+#box_menu{
+    text-align: center;
+}
+

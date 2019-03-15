@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+body {
+    
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('./photo0000-1996.jpg');
+    background-position:center;
+    background-size: cover;
+    
+}
+.kahen_Box{
+     width:80%;
+     min-width: 320px;
+     border:#000000 1px solid;
+     margin:0 10%;   
+}
+.kahen_img img{
+     width:50%;
+     padding:0% 25%;
+}
+
+#start_wait_screen{
+    
+    padding: 10px 10px; /*周りの空白 */
+    font-size: 3em;     /*文字の大きさ*/
+    margin: 0 ;  /*空白縦横*/
+    height: auto;
+    background: orange;
+    text-align: center;
+
+}
+
+#start_wait_screen2{
+    
+    padding: 10px 10px; /*周りの空白 */
+    font-size: 5em;     /*文字の大きさ*/
+    margin: 0 ;  /*空白縦横*/
+    height: auto;
+    background: lime;
+    text-align: center;
+
+}
+
+
+.start_button {
+    background: orange;
+    padding: 0 100%; /*周りの空白 */
+    font-size: 2em;     /*文字の大きさ*/
+    margin: auto auto;  /*空白縦横*/
+    width:100%%;          /*margin表示領域*/
+    text-align: center;
+    
+}
+/* マウスオーバー時のカラー */
+
+.start_button:hover {
+border:  solid #19DC12;
+background-color: #049BF3;
+} 
+
+#box_menu{
+    text-align: center;
+}
